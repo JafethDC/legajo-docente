@@ -10,7 +10,7 @@ class ProfessorProfileFormPage extends Component {
 
   render(){
     return (
-      <div>
+      <div className="professor-profile-form-container">
         <Row>
           <Col xsOffset={3} xs={6}>
             <ProfessorProfileForm onSubmit={this.handleSubmit}/>

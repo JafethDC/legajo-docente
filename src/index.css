@@ -10,3 +10,20 @@ body {
   text-align: center;
   line-height: 100px;
 }
+
+.professor-profile-form-container{
+  margin: 20px;
+}
+
+.input-checkbox{
+  margin-left: 15px;
+}
+
+
+input[type=date]{
+  padding-right: 5px;
+}
+
+input[type=number]{
+  padding-right: 5px;
+}
