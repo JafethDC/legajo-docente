@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Row, Col, Button } from 'react-bootstrap';
 
 import Input from 'components/Input';
+import * as Validators from './validators';
 
 const FormPart1 = props => {
   const { handleSubmit } = props;
@@ -53,7 +54,7 @@ const FormPart1 = props => {
 
       <Row>
         <Col xs={12}>
-          <Field name="email" label="Correo electrónico" component={Input} type="text" />
+          <Field name="email" label="Correo electrónico" component={Input} validate={Validators.email} type="text" />
         </Col>
       </Row>
 

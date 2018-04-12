@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
 import Input from 'components/Input';
+import * as Validators from './validators';
+
+const numberInputParse = val => isNaN(parseInt(val, 10)) ? null : parseInt(val, 10);
 
 const FormPart3 = ({ handleSubmit, totalHorasSemanales, previousPage }) => 
 (
@@ -16,7 +19,7 @@ const FormPart3 = ({ handleSubmit, totalHorasSemanales, previousPage }) =>
           label="Fecha de ingreso como docente"
           component={Input}
           type="date" 
-          className="input-date"/>
+          validate={Validators.beforeToday}/>
       </Col>
       <Col xs={6}>
         <FormGroup>
@@ -34,21 +37,21 @@ const FormPart3 = ({ handleSubmit, totalHorasSemanales, previousPage }) =>
       <Col xs={3}>
         <FormGroup>
           <ControlLabel>Pregrado</ControlLabel>
-          <Field name="dictaPregrado" component="input" type="checkbox" className="input-checkbox" />
+          <Field name="dictaPregrado" component="input" type="checkbox" style={{ display: 'block' }} />
         </FormGroup>
       </Col>
 
       <Col xs={3}>
         <FormGroup>
           <ControlLabel>Maestría</ControlLabel>
-          <Field name="dictaMaestria" component="input" type="checkbox" className="input-checkbox" />
+          <Field name="dictaMaestria" component="input" type="checkbox" style={{ display: 'block' }} />
         </FormGroup>
       </Col>
 
       <Col xs={3}>
         <FormGroup>
           <ControlLabel>Doctorado</ControlLabel>
-          <Field name="dictaDoctorado" component="input" type="checkbox" className="input-checkbox" />
+          <Field name="dictaDoctorado" component="input" type="checkbox" style={{ display: 'block' }} />
         </FormGroup>
       </Col>
     </Row>
@@ -76,11 +79,23 @@ const FormPart3 = ({ handleSubmit, totalHorasSemanales, previousPage }) =>
       </Col>
 
       <Col xs={3}>
-        <Field name="horasSemanalesClase" label="Clases" component={Input} type="number" parse={val => isNaN(parseInt(val, 10)) ? null : parseInt(val, 10)} />
+          <Field 
+            name="horasSemanalesClase" 
+            label="Clases" 
+            component={Input} 
+            type="number" 
+            parse={numberInputParse}
+            validate={Validators.minValue(0)}/>
       </Col>
 
       <Col xs={3}>
-        <Field name="horasSemanalesOtros" label="Otras actividades" component={Input} type="number" parse={val => isNaN(parseInt(val, 10)) ? null : parseInt(val, 10)} />
+          <Field 
+            name="horasSemanalesOtros" 
+            label="Otras actividades" 
+            component={Input} 
+            type="number" 
+            parse={numberInputParse} 
+            validate={Validators.minValue(0)}/>
       </Col>
 
       <Col xs={3}>
