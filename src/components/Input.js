@@ -11,6 +11,7 @@ export default class Input extends Component {
       componentClass,
       hideErrorMessage,
       required,
+      className,
       meta: { error, warning, touched, asyncValidating },
       ...props
     } = this.props;
@@ -29,7 +30,7 @@ export default class Input extends Component {
                      componentClass={componentClass}
                      type={ type }
                      { ...props }
-                     className={asyncValidating ? 'async-validating' : ''} >
+                     className={`${className} ${asyncValidating ? 'async-validating' : ''}`} >
           {this.props.children}
         </FormControl>
         {<FormControl.Feedback>{ feedbackIcon }</FormControl.Feedback> }

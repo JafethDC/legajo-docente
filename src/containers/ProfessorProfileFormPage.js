@@ -12,7 +12,7 @@ class ProfessorProfileFormPage extends Component {
     return (
       <div className="professor-profile-form-container">
         <Row>
-          <Col xsOffset={3} xs={6}>
+          <Col xs={12} mdOffset={2} md={8} lgOffset={3} lg={6}>
             <ProfessorProfileForm onSubmit={this.handleSubmit}/>
           </Col>
         </Row>
