@@ -47,7 +47,7 @@ class FormPart2 extends Component {
   }
 
   render(){
-    const { handleSubmit, previousPage } = this.props;
+    const { nextPage, previousPage, handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit}>
         <Row>
@@ -140,7 +140,7 @@ class FormPart2 extends Component {
             <Button onClick={previousPage}>Anterior</Button>
           </Col>
           <Col xs={2} xsOffset={8}>
-            <Button type="submit">Siguiente</Button>
+            <Button onClick={nextPage}>Siguiente</Button>
           </Col>
         </Row>
       </form>

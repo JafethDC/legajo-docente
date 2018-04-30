@@ -9,7 +9,7 @@ import * as Validators from './validators';
 
 const numberInputParse = val => isNaN(parseInt(val, 10)) ? null : parseInt(val, 10);
 
-const FormPart3 = ({ handleSubmit, totalHorasSemanales, previousPage }) => 
+const FormPart3 = ({ totalHorasSemanales, previousPage, handleSubmit }) => 
 (
   <form onSubmit={handleSubmit}>
     <Row>
@@ -31,27 +31,34 @@ const FormPart3 = ({ handleSubmit, totalHorasSemanales, previousPage }) =>
 
     <Row>
       <Col xs={3}>
-        <ControlLabel>Niveles de programa de estudio en los que da clase</ControlLabel>
+        <ControlLabel>Niveles de programa de estudio que dicta</ControlLabel>
       </Col>
 
-      <Col xs={3}>
+      <Col xs={2} xsOffset={1}>
         <FormGroup>
           <ControlLabel>Pregrado</ControlLabel>
           <Field name="dictaPregrado" component="input" type="checkbox" style={{ display: 'block' }} />
         </FormGroup>
       </Col>
 
-      <Col xs={3}>
+      <Col xs={2}>
         <FormGroup>
           <ControlLabel>Maestría</ControlLabel>
           <Field name="dictaMaestria" component="input" type="checkbox" style={{ display: 'block' }} />
         </FormGroup>
       </Col>
 
-      <Col xs={3}>
+      <Col xs={2}>
         <FormGroup>
           <ControlLabel>Doctorado</ControlLabel>
           <Field name="dictaDoctorado" component="input" type="checkbox" style={{ display: 'block' }} />
+        </FormGroup>
+      </Col>
+
+      <Col xs={2}>
+        <FormGroup>
+          <ControlLabel>Diplomatura</ControlLabel>
+          <Field name="dictaDiplomatura" component="input" type="checkbox" style={{ display: 'block' }} />
         </FormGroup>
       </Col>
     </Row>
@@ -61,7 +68,8 @@ const FormPart3 = ({ handleSubmit, totalHorasSemanales, previousPage }) =>
         <Field name="categoriaDocente" label="Categoría docente" component={Input} componentClass="select">
           <option value="ordinario-asociado">Ordinario Asociado</option>
           <option value="ordinario-principal">Ordinario Principal</option>
-          <option value="ordinario-auxiliar">OrdinarioAuxiliar</option>
+          <option value="ordinario-auxiliar">Ordinario Auxiliar</option>
+          <option value="invitado">Invitado</option>
         </Field>
       </Col>
 
@@ -105,16 +113,22 @@ const FormPart3 = ({ handleSubmit, totalHorasSemanales, previousPage }) =>
     </Row>
 
     <Row>
-      <Col xs={6}>
+      <Col xs={4}>
         <FormGroup>
           <ControlLabel>Es docente investigador</ControlLabel>
           <Field name="docenteInvestigador" component="input" type="checkbox" style={{ display: 'block' }} />
         </FormGroup>
       </Col>
-      <Col xs={6}>
+      <Col xs={4}>
         <FormGroup>
           <ControlLabel>Está registrado en DINA</ControlLabel>
           <Field name="registradoDINA" component="input" type="checkbox" style={{ display: 'block' }} />
+        </FormGroup>
+      </Col>
+      <Col xs={4}>
+        <FormGroup>
+          <ControlLabel>Está registrado en REGINA</ControlLabel>
+          <Field name="registradoREGINA" component="input" type="checkbox" style={{ display: 'block' }} />
         </FormGroup>
       </Col>
     </Row>
@@ -122,9 +136,6 @@ const FormPart3 = ({ handleSubmit, totalHorasSemanales, previousPage }) =>
     <Row>
       <Col xs={2} >
         <Button onClick={previousPage}>Anterior</Button>
-      </Col>
-      <Col xs={2} xsOffset={8}>
-        <Button type="submit" bsStyle="success">Enviar</Button>
       </Col>
     </Row>
   </form>
