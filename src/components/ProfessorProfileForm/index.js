@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import FormPart1 from './FormPart1';
 import FormPart2 from './FormPart2';
 import FormPart3 from './FormPart3';
+import FormPart4 from './FormPart4';
 
 class ProfessorProfileForm extends Component {
   state = {
@@ -33,25 +34,51 @@ class ProfessorProfileForm extends Component {
         >
           <Tab eventKey={1} title="Parte 1" >
             <div className="tab-container">
-              <FormPart1 nextPage={this.nextPage} onSubmit={onSubmit} initialValues={initialValues}/>
+              <Row>
+                <Col xs={12} md={8} mdOffset={2}>
+                  <FormPart1 nextPage={this.nextPage} onSubmit={onSubmit} initialValues={initialValues} />
+                </Col>
+              </Row>
             </div>
           </Tab>
+
           <Tab eventKey={2} title="Parte 2" >
             <div className="tab-container">
-              <FormPart2 
+              <Row>
+                <Col xs={12} md={8} mdOffset={2}>
+                  <FormPart2
+                    previousPage={this.previousPage}
+                    nextPage={this.nextPage}
+                    onSubmit={onSubmit}
+                    initialValues={initialValues}
+                  />
+                </Col>
+              </Row>
+            </div>
+          </Tab>
+          
+          <Tab eventKey={3} title="Parte 3" >
+            <div className="tab-container">
+              <FormPart3 
                 previousPage={this.previousPage} 
-                nextPage={this.nextPage} 
+                nextPage={this.nextPage}
                 onSubmit={onSubmit} 
                 initialValues={initialValues}
               />
             </div>
           </Tab>
-          <Tab eventKey={3} title="Parte 3" >
+
+          <Tab eventKey={4} title="Parte 4">
             <div className="tab-container">
-              <FormPart3 previousPage={this.previousPage} onSubmit={onSubmit} initialValues={initialValues}/>
+              <FormPart4 
+                previousPage={this.previousPage}
+                onSubmit={onSubmit}
+                initialValues={initialValues}
+              />
             </div>
           </Tab>
         </Tabs>
+        
         <Row>
           <Col xs={6} xsOffset={3} md={4} mdOffset={4} lg={2} lgOffset={5}>
             <Button onClick={() => submit('professorProfile')}>Guardar</Button>

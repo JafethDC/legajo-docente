@@ -4,6 +4,8 @@ import { Row, Col, Button, Glyphicon, FormGroup, ControlLabel } from 'react-boot
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 
+import Countries from 'utils/countries';
+import AcademicDegrees from 'utils/academicDegrees';
 import Input from 'components/Input';
 
 const dropzoneStyle = {
@@ -51,8 +53,26 @@ class FormPart2 extends Component {
     return (
       <form onSubmit={handleSubmit}>
         <Row>
-          <Col xs={12}>
-            <Field name="mayorGradoAcademico" label="Mayor grado académico" component={Input} type="text" />
+          <Col xs={12} md={6}>
+            <Field 
+              name="mayorGradoAcademico" 
+              label="Mayor grado académico" 
+              component={Input} 
+              componentClass="select"
+            >
+              {AcademicDegrees.map(d => <option value={d}>{d}</option>)}
+            </Field>
+          </Col>
+
+          <Col xs={12} md={6}>
+            <Field
+              name="paisMayorGradoAcademico"
+              label="País de la universidad que otorgó el mayor grado académico"
+              component={Input}
+              componentClass="select"
+            >
+              {Countries.map(c => <option value={c}>{c}</option>)}
+            </Field>
           </Col>
         </Row>
 
@@ -73,17 +93,6 @@ class FormPart2 extends Component {
               label="Universidad que otorgó el mayor grado académico"
               component={Input}
               type="text" />
-          </Col>
-        </Row>
-
-        <Row>
-          <Col xs={12}>
-            <Field
-              name="paisMayorGradoAcademico"
-              label="País de la universidad que otorgó el mayor grado académico"
-              component={Input}
-              type="text" />
-
           </Col>
         </Row>
 

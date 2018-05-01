@@ -9,7 +9,7 @@ import * as Validators from './validators';
 
 const numberInputParse = val => isNaN(parseInt(val, 10)) ? null : parseInt(val, 10);
 
-const FormPart3 = ({ totalHorasSemanales, previousPage, handleSubmit }) => 
+const FormPart3 = ({ totalHorasSemanales, previousPage, nextPage, handleSubmit }) => 
 (
   <form onSubmit={handleSubmit}>
     <Row>
@@ -136,6 +136,9 @@ const FormPart3 = ({ totalHorasSemanales, previousPage, handleSubmit }) =>
     <Row>
       <Col xs={2} >
         <Button onClick={previousPage}>Anterior</Button>
+      </Col>
+      <Col xs={2} xsOffset={8}>
+        <Button onClick={nextPage}>Siguiente</Button>
       </Col>
     </Row>
   </form>
