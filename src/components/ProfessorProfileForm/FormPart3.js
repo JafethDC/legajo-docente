@@ -134,10 +134,27 @@ const FormPart3 = ({ totalHorasSemanales, previousPage, nextPage, handleSubmit }
     </Row>
 
     <Row>
-      <Col xs={2} >
+      <Col xs={6}>
+        <Field name="grupoInvestigacion" label="Grupo de Investigación" component={Input} componentClass="select">
+          <option value="robotica">Robótica</option>
+          <option value="internet de las cosas">Internet de las Cosas</option>
+          <option value="blockchain">Blockchain</option>
+          <option value="desarrollo-videojuegos">Desarrollo de Videojuegos</option>
+        </Field>
+      </Col>
+      <Col xs={6}>
+        <Field name="condicionGrupoInvestigacion" label="Condición" component={Input} componentClass="select">
+          <option value="activo">Activo</option>
+          <option value="inactivo">Inactivo</option>
+        </Field>
+      </Col>
+    </Row>
+
+    <Row>
+      <Col xs={3} className="text-center">
         <Button onClick={previousPage}>Anterior</Button>
       </Col>
-      <Col xs={2} xsOffset={8}>
+      <Col xs={3} xsOffset={6} className="text-center">
         <Button onClick={nextPage}>Siguiente</Button>
       </Col>
     </Row>

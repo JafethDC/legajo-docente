@@ -14,9 +14,6 @@ class ProfessorProfileFormPage extends Component {
         <Row>
           <Col xs={12} mdOffset={1} md={10} lgOffset={2} lg={8}>
             <ProfessorProfileForm onSubmit={this.handleSubmit} initialValues={{
-              apellidoPaterno: 'Diaz',
-              mayorGradoAcademico: 'Dr.',
-              horasSemanalesClase: 3
             }}/>
           </Col>
         </Row>

@@ -7,6 +7,7 @@ import FormPart1 from './FormPart1';
 import FormPart2 from './FormPart2';
 import FormPart3 from './FormPart3';
 import FormPart4 from './FormPart4';
+import FormPart5 from './FormPart5';
 
 class ProfessorProfileForm extends Component {
   state = {
@@ -32,7 +33,7 @@ class ProfessorProfileForm extends Component {
           mountOnEnter
           unmountOnExit
         >
-          <Tab eventKey={1} title="Parte 1" >
+          <Tab eventKey={1} title="Información Profesional" >
             <div className="tab-container">
               <Row>
                 <Col xs={12} md={8} mdOffset={2}>
@@ -42,7 +43,7 @@ class ProfessorProfileForm extends Component {
             </div>
           </Tab>
 
-          <Tab eventKey={2} title="Parte 2" >
+          <Tab eventKey={2} title="Perfil Académico" >
             <div className="tab-container">
               <Row>
                 <Col xs={12} md={8} mdOffset={2}>
@@ -57,7 +58,7 @@ class ProfessorProfileForm extends Component {
             </div>
           </Tab>
           
-          <Tab eventKey={3} title="Parte 3" >
+          <Tab eventKey={3} title="Información Docente" >
             <div className="tab-container">
               <FormPart3 
                 previousPage={this.previousPage} 
@@ -68,20 +69,39 @@ class ProfessorProfileForm extends Component {
             </div>
           </Tab>
 
-          <Tab eventKey={4} title="Parte 4">
+          <Tab eventKey={4} title="Experiencia Laboral">
             <div className="tab-container">
-              <FormPart4 
-                previousPage={this.previousPage}
-                onSubmit={onSubmit}
-                initialValues={initialValues}
-              />
+              <Row>
+                <Col xs={12} md={10} mdOffset={1}>
+                  <FormPart4 
+                    previousPage={this.previousPage}
+                    nextPage={this.nextPage}
+                    onSubmit={onSubmit}
+                    initialValues={initialValues}
+                  />
+                </Col>
+              </Row>
+            </div>
+          </Tab>
+
+          <Tab eventKey={5} title="Capacitaciones">
+            <div className="tab-container">
+              <Row>
+                <Col xs={12} md={10} mdOffset={1}>
+                  <FormPart5 
+                    previousPage={this.previousPage}
+                    onSubmit={onSubmit}
+                    initialValues={initialValues}
+                  />
+                </Col>
+              </Row>
             </div>
           </Tab>
         </Tabs>
         
         <Row>
-          <Col xs={6} xsOffset={3} md={4} mdOffset={4} lg={2} lgOffset={5}>
-            <Button onClick={() => submit('professorProfile')}>Guardar</Button>
+          <Col xs={6} xsOffset={3} md={4} mdOffset={4} lg={2} lgOffset={5} className="text-center">
+            <Button onClick={() => submit('professorProfile')} bsStyle="primary">Guardar</Button>
           </Col>
         </Row>
       </div>

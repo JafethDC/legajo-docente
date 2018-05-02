@@ -63,7 +63,7 @@ const FormPart1 = ({ nextPage, handleSubmit }) => (
     </Row>
 
     <Row>
-      <Col xs={2} xsOffset={10}>
+      <Col xs={3} xsOffset={9} className="text-center">
         <Button onClick={nextPage}>Siguiente</Button>
       </Col>
     </Row>

@@ -145,10 +145,10 @@ class FormPart2 extends Component {
         </Row>
 
         <Row>
-          <Col xs={2} >
+          <Col xs={3} className="text-center">
             <Button onClick={previousPage}>Anterior</Button>
           </Col>
-          <Col xs={2} xsOffset={8}>
+          <Col xs={3} xsOffset={6} className="text-center">
             <Button onClick={nextPage}>Siguiente</Button>
           </Col>
         </Row>
