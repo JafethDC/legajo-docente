@@ -8,9 +8,7 @@ export const updateProfessorProfile = createAction(
     const params = {
       method: 'POST',
       body: JSON.stringify(payload),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: { 'Content-Type': 'application/json' },
     };
 
     return fetch(url, params)
