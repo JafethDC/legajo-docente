@@ -12,7 +12,9 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
+    "redux-actions": "^2.3.0",
     "redux-form": "^7.3.0",
+    "redux-promise-middleware": "^5.1.1",
     "reselect": "^3.0.1"
   },
   "scripts": {
