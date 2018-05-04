@@ -66,7 +66,7 @@ const renderTrainingItems = ({ fields, meta: { error, submitFailed } }) => (
 
 const FormPart5 = ({handleSubmit, previousPage}) => (
   <form onSubmit={handleSubmit}>
-    <FieldArray name="experienceItems" component={renderTrainingItems}/>
+    <FieldArray name="trainingItems" component={renderTrainingItems}/>
     <Row>
       <Col xs={3} className="text-center">
         <Button onClick={previousPage}>Anterior</Button>
