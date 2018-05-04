@@ -4,8 +4,13 @@ import { connect } from 'react-redux';
 import ProfessorProfileFormPage from 'containers/ProfessorProfileFormPage';
 import LogInPage from 'containers/LogInPage';
 import Navbar from 'components/Navbar';
+import { logOut } from 'actions/membership';
 
 class App extends Component {
+  componentWillUnmount(){
+    this.props.logOut();
+  }
+
   render() {
     return (
       <div className="App">
@@ -20,4 +25,6 @@ const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = { logOut };
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -60,7 +60,7 @@ class FormPart2 extends Component {
               component={Input} 
               componentClass="select"
             >
-              {AcademicDegrees.map(d => <option value={d}>{d}</option>)}
+              {AcademicDegrees.map((d, i) => <option key={i} value={d}>{d}</option>)}
             </Field>
           </Col>
 
