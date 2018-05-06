@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import ProfessorProfileFormPage from 'containers/ProfessorProfileFormPage';
 import LogInPage from 'containers/LogInPage';
+import NotFoundPage from 'containers/NotFoundPage';
 import Navbar from 'components/Navbar';
-import { logOut } from 'actions/membership';
+import PrivateRoute from 'components/PrivateRoute';
 
 class App extends Component {
-  componentWillUnmount(){
-    this.props.logOut();
-  }
-
   render() {
     return (
       <div className="App">
         <Navbar/>
-        { this.props.currentUser ? <ProfessorProfileFormPage/> : <LogInPage/>}
+        <Switch>
+          <Route path="/login" component={LogInPage}/>
+          <PrivateRoute path="/profile" component={ProfessorProfileFormPage}/>
+          <Redirect from="/" to="/profile" exact />
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
-});
-
-const mapDispatchToProps = { logOut };
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

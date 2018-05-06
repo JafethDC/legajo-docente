@@ -6,14 +6,13 @@ import LogInForm from 'components/LogInForm';
 import { logIn, fetchProfile } from 'actions/membership';
 
 class LogInPage extends Component {
-  handleSubmit = ({email, password}) => 
-                  this.props.logIn(email, password)
-                  .then(r => {
-                    console.log('r', r);
-                    this.props.fetchProfile()
-                    .then(r => console.log('fetchprofile response', r))
-                  })
-                  .catch(e => console.log('e', e))
+  handleSubmit = ({email, password}) => {
+    const { logIn, fetchProfile, history } = this.props;
+    return logIn(email, password)
+    .then(() => fetchProfile())
+    .then(() => history.push('/profile'))
+    .catch(e => console.error('LogInPage#handleSubmit', e));
+  }
 
   render(){
     return (
