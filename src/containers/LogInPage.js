@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { SubmissionError } from 'redux-form';
 
 import LogInForm from 'components/LogInForm';
 import { logIn, fetchProfile } from 'actions/membership';
 
 class LogInPage extends Component {
   handleSubmit = ({email, password}) => {
-    const { logIn, fetchProfile, history } = this.props;
+    const { logIn } = this.props;
     return logIn(email, password)
-    .then(() => fetchProfile())
-    .then(() => history.push('/profile'))
-    .catch(e => console.error('LogInPage#handleSubmit', e));
+/*     .then(() => fetchProfile())
+    .then(() => history.push('/profile')) */
+    .catch(() => {
+      throw new SubmissionError({_error: 'Datos incorrectos!'})
+    });
   }
 
   render(){
