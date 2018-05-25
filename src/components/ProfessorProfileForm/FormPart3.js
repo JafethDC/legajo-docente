@@ -74,7 +74,7 @@ const FormPart3 = ({ totalHorasSemanales, previousPage, nextPage, handleSubmit }
       </Col>
 
       <Col xs={6}>
-        <Field name="categoriaDocente" label="Categoría docente" component={Input} componentClass="select">
+        <Field name="dedicacion" label="Nivel de dedicación" component={Input} componentClass="select">
           <option value="tiempo-parcial">Tiempo parcial</option>
           <option value="tiempo-completo">Tiempo completo</option>
         </Field>
