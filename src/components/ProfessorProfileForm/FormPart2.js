@@ -39,7 +39,6 @@ class FormPart2 extends Component {
   }
 
   onDropFile = acceptedFiles => {
-    console.log('accepted files', acceptedFiles);
     if (acceptedFiles.length) {
       this.props.change('professorProfile', 'cv', acceptedFiles[0]);
       this.setState({

@@ -27,3 +27,7 @@ input[type=number].input-number{
 .tab-container{
   padding: 20px 10px;
 }
+
+.clickable{
+  cursor: pointer;
+}

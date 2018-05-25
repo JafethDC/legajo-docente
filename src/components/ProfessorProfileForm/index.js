@@ -32,6 +32,7 @@ class ProfessorProfileForm extends Component {
           id="professor-profile-form"
           mountOnEnter
           unmountOnExit
+          animation={false}
         >
           <Tab eventKey={1} title="Información Profesional" >
             <div className="tab-container">

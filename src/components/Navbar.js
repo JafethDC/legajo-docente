@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { logOut } from 'actions/membership';
 
-const Navbar = ({currentUser}) => (
+const Navbar = ({currentUser, logOut}) => (
   <nav className="navbar navbar-default">
     <div className="container-fluid">
       <div className="navbar-header">
@@ -18,7 +18,8 @@ const Navbar = ({currentUser}) => (
 
       <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul className="nav navbar-nav navbar-right">
-          {currentUser && <li><a>Salir</a></li>}
+          {currentUser && 
+            <li><a className="clickable" onClick={logOut}>Salir</a></li>}
         </ul>
       </div>
     </div>
